@@ -22,6 +22,10 @@
                 </ui:ThemeResources>
                 <ui:XamlControlsResources />
                 <!--  Other merged dictionaries here  -->
+                <ResourceDictionary>
+                    <FontFamily x:Key="EAN13">/Manage;component/Fonts/#Libre Barcode EAN13 Text</FontFamily>
+                    <FontFamily x:Key="Digital">/Manage;component/Fonts/#Digital-7</FontFamily>
+                </ResourceDictionary>
                 <ResourceDictionary Source="./Resources/Icons.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <!--  Other application resources here  -->

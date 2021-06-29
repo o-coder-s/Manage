@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Windows;
 
 namespace Manage
@@ -9,9 +8,23 @@ namespace Manage
     /// </summary>
     public partial class App : Application
     {
+        #region Frames
+
+        public static ModernWpf.Controls.Frame MainF { get; set; }
+        public static ModernWpf.Controls.Frame ActionF { get; set; }
+        public static ModernWpf.Controls.Frame PrintF { get; set; }
+        public static ModernWpf.Controls.Frame LoginF { get; set; }
+        public static ModernWpf.Controls.Frame SetupF { get; set; }
+
+        #endregion
+
+        #region Properties
         public ProcessStartInfo serverInfo { get; set; }
         public Process server { get; set; }
-        public static ModernWpf.Controls.Frame MainF { get; set; }
+        #endregion
+
+        #region Overrides
+
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -40,5 +53,14 @@ namespace Manage
             //    MessageBox.Show("Server is not running\n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             //}
         }
+        #endregion
+
+        #region Constructors
+
+        public App()
+        {
+
+        }
+        #endregion
     }
 }

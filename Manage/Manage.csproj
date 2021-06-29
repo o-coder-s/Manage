@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7C6E7AFD-BDF3-419B-B4BE-B74A1F4050D6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MStore</RootNamespace>
-    <AssemblyName>MStore</AssemblyName>
+    <RootNamespace>Manage</RootNamespace>
+    <AssemblyName>Manage</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -97,6 +97,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converters\PixelToGridLengthConverter.cs" />
+    <Compile Include="Helpers\NavigationHelper.cs" />
+    <Compile Include="Helpers\WindowHelper.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Repository\Request.cs" />
     <Compile Include="ViewModels\Main\MainVM.cs" />
@@ -104,8 +106,20 @@
     <Compile Include="Views\Pages\Main\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Windows\Action.xaml.cs">
+      <DependentUpon>Action.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Print.xaml.cs">
+      <DependentUpon>Print.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Setup.xaml.cs">
+      <DependentUpon>Setup.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +146,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\digital-7.ttf" />
+    <Resource Include="Fonts\EAN13.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -142,8 +158,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Fonts\" />
-    <Folder Include="Helpers\" />
+    <Folder Include="ViewModels\Login\" />
+    <Folder Include="ViewModels\Print\" />
+    <Folder Include="ViewModels\Setup\" />
+    <Folder Include="Views\Pages\Error\" />
+    <Folder Include="Views\Pages\Login\" />
+    <Folder Include="Views\Pages\Print\" />
+    <Folder Include="Views\Pages\Setup\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Properties\DesignTimeResources.xaml">
@@ -162,7 +183,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Windows\Action.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Print.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Setup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
