@@ -1,0 +1,21 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!--  Override system shape defaults  -->
+    <CornerRadius x:Key="ControlCornerRadius">0,0,0,0</CornerRadius>
+    <CornerRadius x:Key="OverlayCornerRadius">0,0,0,0</CornerRadius>
+    <!--  Override system borders  -->
+    <sys:Double x:Key="CheckBoxBorderThemeThickness">1</sys:Double>
+    <sys:Double x:Key="RadioButtonBorderThemeThickness">1</sys:Double>
+    <Thickness x:Key="ButtonBorderThemeThickness">1</Thickness>
+    <Thickness x:Key="CalendarDatePickerBorderThemeThickness">1</Thickness>
+    <Thickness x:Key="TimePickerBorderThemeThickness">1</Thickness>
+    <sys:Double x:Key="ToggleSwitchOuterBorderStrokeThickness">1</sys:Double>
+    <Thickness x:Key="RepeatButtonBorderThemeThickness">1</Thickness>
+    <Thickness x:Key="ToggleButtonBorderThemeThickness">1</Thickness>
+    <Thickness x:Key="TextControlBorderThemeThickness">1</Thickness>
+    <sys:Double x:Key="PersonPictureEllipseBadgeStrokeThickness">1</sys:Double>
+    <Thickness x:Key="ComboBoxBorderThemeThickness">1</Thickness>
+    <Thickness x:Key="NumberBoxSpinButtonBorderThickness">0,1,1,1</Thickness>
+</ResourceDictionary>
