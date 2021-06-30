@@ -18,6 +18,11 @@ namespace Manage
 
         #endregion
 
+        #region Static Properties
+        public static string ServerIP { get; set; }
+        public static string ServerPort { get; set; }
+        #endregion
+
         #region Properties
         public ProcessStartInfo serverInfo { get; set; }
         public Process server { get; set; }
@@ -59,7 +64,7 @@ namespace Manage
 
         public App()
         {
-
+            // Find server if this Application is a client
         }
         #endregion
     }

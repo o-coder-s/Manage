@@ -1,5 +1,4 @@
 ﻿using Manage.Helpers;
-using Manage.Views.Pages.Main;
 namespace Manage.Views.Windows
 {
     /// <summary>
