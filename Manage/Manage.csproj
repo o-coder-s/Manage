@@ -103,6 +103,15 @@
     <Compile Include="Repository\Request.cs" />
     <Compile Include="ViewModels\Main\MainVM.cs" />
     <Compile Include="ViewModels\Main\MenuVM.cs" />
+    <Compile Include="Views\Pages\Login\NewPassword.xaml.cs">
+      <DependentUpon>NewPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Login\Questions.xaml.cs">
+      <DependentUpon>Questions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Login\SignIn.xaml.cs">
+      <DependentUpon>SignIn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\Main\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
@@ -162,7 +171,6 @@
     <Folder Include="ViewModels\Print\" />
     <Folder Include="ViewModels\Setup\" />
     <Folder Include="Views\Pages\Error\" />
-    <Folder Include="Views\Pages\Login\" />
     <Folder Include="Views\Pages\Print\" />
     <Folder Include="Views\Pages\Setup\" />
   </ItemGroup>
@@ -176,6 +184,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Shapes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Login\NewPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Login\Questions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Login\SignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

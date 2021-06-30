@@ -1,5 +1,4 @@
-﻿using Manage.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Manage.Views.Pages.Main
+namespace Manage.Views.Pages.Login
 {
     /// <summary>
-    /// Interaction logic for Menu.xaml
+    /// Interaction logic for SignIn.xaml
     /// </summary>
-    public partial class Menu : Page
+    public partial class SignIn : Page
     {
-        public Menu()
+        public SignIn()
         {
             InitializeComponent();
         }

@@ -1,4 +1,5 @@
-﻿using Manage.Views.Pages.Main;
+﻿using Manage.Helpers;
+using Manage.Views.Pages.Main;
 namespace Manage.Views.Windows
 {
     /// <summary>
@@ -10,7 +11,8 @@ namespace Manage.Views.Windows
         {
             InitializeComponent();
             App.MainF = MainF;
-            MainF.Navigate(typeof(Menu));
+
+            NavigationHelper.Navigate(App.MainF, Helpers.Pages.Menu, Transitions.Entrance);
         }
     }
 }
