@@ -101,6 +101,7 @@
     <Compile Include="Helpers\WindowHelper.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Repository\Request.cs" />
+    <Compile Include="ViewModels\Login\SignInVM.cs" />
     <Compile Include="ViewModels\Main\MainVM.cs" />
     <Compile Include="ViewModels\Main\MenuVM.cs" />
     <Compile Include="Views\Pages\Login\NewPassword.xaml.cs">
@@ -203,7 +204,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\Login\" />
     <Folder Include="ViewModels\Print\" />
     <Folder Include="ViewModels\Setup\" />
     <Folder Include="Views\Pages\Error\" />
