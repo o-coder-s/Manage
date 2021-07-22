@@ -112,8 +112,44 @@
     <Compile Include="Views\Pages\Login\SignIn.xaml.cs">
       <DependentUpon>SignIn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\Main\Articles.xaml.cs">
+      <DependentUpon>Articles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\CashRegister.xaml.cs">
+      <DependentUpon>CashRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\Clinets.xaml.cs">
+      <DependentUpon>Clinets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\Expenses.xaml.cs">
+      <DependentUpon>Expenses.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\Main\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\Purchases.xaml.cs">
+      <DependentUpon>Purchases.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\ReturnPurchases.xaml.cs">
+      <DependentUpon>ReturnPurchases.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\ReturnSales.xaml.cs">
+      <DependentUpon>ReturnSales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\Sales.xaml.cs">
+      <DependentUpon>Sales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\SellOnDesk.xaml.cs">
+      <DependentUpon>SellOnDesk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\Stock.xaml.cs">
+      <DependentUpon>Stock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\Suppliers.xaml.cs">
+      <DependentUpon>Suppliers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\Action.xaml.cs">
       <DependentUpon>Action.xaml</DependentUpon>
@@ -199,7 +235,55 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pages\Main\Articles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\CashRegister.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\Clinets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\Expenses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\Main\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\Purchases.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\ReturnPurchases.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\ReturnSales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\Sales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\SellOnDesk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\Stock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\Suppliers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

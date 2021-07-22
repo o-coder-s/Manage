@@ -65,6 +65,8 @@ namespace Manage
         public App()
         {
             // Find server if this Application is a client
+
+            ModernWpf.ThemeManager.Current.ApplicationTheme = ModernWpf.ApplicationTheme.Dark;
         }
         #endregion
     }

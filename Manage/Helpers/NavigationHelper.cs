@@ -20,6 +20,19 @@ namespace Manage.Helpers
     {
         // Main Pages
         Menu,
+        Clients,
+        Suppliers,
+        Stock,
+        Purchases,
+        Sales,
+        ReturnPurchases,
+        ReturnSales,
+        SellOnDesk,
+        CashRegister,
+        Expenses,
+        Articles,
+        Settings,
+
         // Login Pages
         SignIn,
         NewPassword,

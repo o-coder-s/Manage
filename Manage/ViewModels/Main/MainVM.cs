@@ -12,7 +12,6 @@ namespace Manage.ViewModels.Main
 
         #region Commands;
 
-        public RelayCommand ChooseCommand { get; set; }
         public RelayCommand NavigateHomeCommand { get; set; }
         // Can Navigate Home
         public bool CanNavigateHome(object param)
@@ -39,6 +38,19 @@ namespace Manage.ViewModels.Main
         //}
 
         public RelayCommand ChangeThemeCommand { set; get; }
+
+        public void ChangeTheme(object param)
+        {
+            if(ThemeImage == "Dark")
+            {
+                ThemeImage = "Light";
+                ModernWpf.ThemeManager.Current.ApplicationTheme = ModernWpf.ApplicationTheme.Dark;
+            }else
+            {
+                ThemeImage = "Dark";
+                ModernWpf.ThemeManager.Current.ApplicationTheme = ModernWpf.ApplicationTheme.Light;
+            }
+        }
 
         #endregion
 
@@ -73,11 +85,11 @@ namespace Manage.ViewModels.Main
         public MainVM()
         {
             // Initializing commands
-            //ChangeThemeCommand = new RelayCommand(ChangeTheme);
+            ChangeThemeCommand = new RelayCommand(ChangeTheme);
             //NavigateHomeCommand = new RelayCommand(NavigateHome, CanNavigateHome);
             //LogoutCommand = new RelayCommand(Logout, CanLogout);
             // Theme Image
-            //ThemeImage = ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? "Moon" : "Sun";
+            ThemeImage = ModernWpf.ThemeManager.Current.ApplicationTheme == ModernWpf.ApplicationTheme.Light ? "Dark" : "Light";
 
             // Main Page
 
@@ -102,23 +114,6 @@ namespace Manage.ViewModels.Main
             Now = DateTime.Now;
             DayOfWeek = Days[(int)DateTime.Now.DayOfWeek];
         }
-
-        public void ChangeTheme(object param)
-        {
-            if (ThemeImage == "Sun")
-            {
-                Console.WriteLine("Changing Theme");
-                ThemeImage = "Moon";
-                // ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
-            }
-            else
-            {
-                ThemeImage = "Sun";
-                // ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
-            }
-        }
-
-
 
         #endregion
     }
