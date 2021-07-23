@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Manage.Views.Pages.Login;
 using Manage.Views.Pages.Main;
-using Manage.Views.Pages.Login;
 using ModernWpf.Media.Animation;
+using System;
 
 
 namespace Manage.Helpers

@@ -19,7 +19,7 @@
     ui:TitleBar.ExtendViewIntoTitleBar="True"
     ui:TitleBar.Style="{DynamicResource AppTitleBarStyle}"
     ui:WindowHelper.UseModernWindowStyle="True"
-    FontFamily="Roboto"
+    WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
     <Window.DataContext>

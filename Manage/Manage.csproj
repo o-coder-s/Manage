@@ -56,6 +56,9 @@
     <Reference Include="ModernWpf.MahApps, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ModernWpfUis.MahApps.1.2.0\lib\net46\ModernWpf.MahApps.dll</HintPath>
     </Reference>
+    <Reference Include="ModernWpf.MessageBox, Version=0.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ModernWpfUIs.MessageBox.0.5.2\lib\net45\ModernWpf.MessageBox.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -101,9 +104,13 @@
     <Compile Include="Helpers\WindowHelper.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Repository\Request.cs" />
+    <Compile Include="ViewModels\Action\ActionVM.cs" />
+    <Compile Include="ViewModels\Login\LoginVM.cs" />
     <Compile Include="ViewModels\Login\SignInVM.cs" />
     <Compile Include="ViewModels\Main\MainVM.cs" />
     <Compile Include="ViewModels\Main\MenuVM.cs" />
+    <Compile Include="ViewModels\Print\PrintVM.cs" />
+    <Compile Include="ViewModels\Setup\SetupVM.cs" />
     <Compile Include="Views\Pages\Login\NewPassword.xaml.cs">
       <DependentUpon>NewPassword.xaml</DependentUpon>
     </Compile>
@@ -204,8 +211,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\Print\" />
-    <Folder Include="ViewModels\Setup\" />
     <Folder Include="Views\Pages\Error\" />
     <Folder Include="Views\Pages\Print\" />
     <Folder Include="Views\Pages\Setup\" />

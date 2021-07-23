@@ -17,7 +17,7 @@ namespace Manage.ViewModels.Main
 
         public void Choose(object param)
         {
-            
+
         }
 
         #endregion

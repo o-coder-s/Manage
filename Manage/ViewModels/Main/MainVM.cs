@@ -41,11 +41,12 @@ namespace Manage.ViewModels.Main
 
         public void ChangeTheme(object param)
         {
-            if(ThemeImage == "Dark")
+            if (ThemeImage == "Dark")
             {
                 ThemeImage = "Light";
                 ModernWpf.ThemeManager.Current.ApplicationTheme = ModernWpf.ApplicationTheme.Dark;
-            }else
+            }
+            else
             {
                 ThemeImage = "Dark";
                 ModernWpf.ThemeManager.Current.ApplicationTheme = ModernWpf.ApplicationTheme.Light;

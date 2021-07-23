@@ -1,6 +1,6 @@
 ﻿using Manage.Views.Windows;
-using Action = Manage.Views.Windows.Action;
 using System.Windows;
+using Action = Manage.Views.Windows.Action;
 
 namespace Manage.Helpers
 {
@@ -23,10 +23,10 @@ namespace Manage.Helpers
 
         #region Static Methods
 
-        public static void Show(Windows window, bool CloseCurrent)
+        public static void Show(Windows window, bool CloseCurrent, object ExtraData = null)
         {
             Window tmp = CurrentWindow;
-            CurrentWindow = GetWindow(window);
+            CurrentWindow = GetWindow(window, ExtraData);
             CurrentWindow.Show();
             if (CloseCurrent) tmp.Close();
         }
@@ -40,27 +40,27 @@ namespace Manage.Helpers
 
         }
 
-        private static Window GetWindow(Windows window)
+        private static Window GetWindow(Windows window, object ExtraData = null)
         {
             switch (window)
             {
                 case Windows.Action:
-                    return new Action();
+                    return new Action(ExtraData);
 
                 case Windows.Login:
-                    return new Login();
+                    return new Login(ExtraData);
 
                 case Windows.Main:
-                    return new Main();
+                    return new Main(ExtraData);
 
                 case Windows.Print:
-                    return new Print();
+                    return new Print(ExtraData);
 
                 case Windows.Setup:
-                    return new Setup();
+                    return new Setup(ExtraData);
 
                 default:
-                    return new Main();
+                    return new Main(ExtraData);
             }
         }
 

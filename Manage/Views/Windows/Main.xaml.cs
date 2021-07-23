@@ -6,6 +6,14 @@ namespace Manage.Views.Windows
     /// </summary>
     public partial class Main : System.Windows.Window
     {
+        public Main(object ExtraData = null)
+        {
+            InitializeComponent();
+            App.MainF = MainF;
+
+            NavigationHelper.Navigate(App.MainF, Helpers.Pages.Menu, Transitions.Entrance);
+        }
+
         public Main()
         {
             InitializeComponent();

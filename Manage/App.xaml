@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Manage"
     xmlns:ui="http://schemas.modernwpf.com/2019"
-    StartupUri="Views/Windows/Main.xaml">
+    StartupUri="Views/Windows/Login.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -27,6 +27,7 @@
                     <FontFamily x:Key="Digital">/Manage;component/Fonts/#Digital-7</FontFamily>
                 </ResourceDictionary>
                 <ResourceDictionary Source="./Resources/Icons.xaml" />
+                <ResourceDictionary Source="./Resources/Shapes.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <!--  Other application resources here  -->
         </ResourceDictionary>

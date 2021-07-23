@@ -7,27 +7,35 @@
     xmlns:local="clr-namespace:Manage.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:vm="clr-namespace:Manage.ViewModels.Print"
     Name="Window"
     Title="Login"
-    Width="700"
-    Height="600"
     ui:TitleBar.ButtonStyle="{DynamicResource AppTitleBarButtonStyle}"
     ui:TitleBar.ExtendViewIntoTitleBar="True"
     ui:TitleBar.Style="{DynamicResource AppTitleBarStyle}"
     ui:WindowHelper.UseModernWindowStyle="True"
     ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
     WindowStyle="ToolWindow"
     mc:Ignorable="d">
     <Window.Resources>
         <!--  Converters  -->
         <cvs:PixelsToGridLengthConverter x:Key="PixelsToGridLengthConverter" />
+        <cvs:KeyToResource x:Key="KeyToResource" />
+
+
+        <!--  Styles  -->
         <Style x:Key="AppTitleBarStyle" TargetType="ui:TitleBarControl">
             <Setter Property="ui:ThemeManager.RequestedTheme" Value="Dark" />
         </Style>
         <Style x:Key="AppTitleBarButtonStyle" TargetType="ui:TitleBarButton">
             <Setter Property="IsActive" Value="{Binding IsActive, ElementName=Window}" />
         </Style>
+
     </Window.Resources>
+    <Window.DataContext>
+        <vm:PrintVM />
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -72,9 +80,13 @@
                 VerticalAlignment="Center"
                 FontSize="13"
                 Text="{Binding ElementName=Window, Path=Title}" />
+
+            <ui:TitleBarButton Grid.Column="2" Command="{Binding ChangeThemeCommand}">
+                <Image Width="24" Source="{Binding ThemeImage, Converter={StaticResource KeyToResource}}" />
+            </ui:TitleBarButton>
         </Grid>
 
-
+        <ui:Frame Name="ActionF" Grid.Row="1" />
 
     </Grid>
 </Window>
