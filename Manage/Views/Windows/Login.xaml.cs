@@ -7,11 +7,9 @@ namespace Manage.Views.Windows
     /// </summary>
     public partial class Login : Window
     {
-        public Login(object ExtraData = null)
+        public Login(object ExtraData = null) : this()
         {
-            InitializeComponent();
-            App.LoginF = LoginF;
-            Helpers.NavigationHelper.Navigate(App.LoginF, Helpers.Pages.SignIn, Helpers.Transitions.DrillIn, true);
+           
         }
 
         public Login()
@@ -19,6 +17,7 @@ namespace Manage.Views.Windows
             InitializeComponent();
             App.LoginF = LoginF;
             Helpers.NavigationHelper.Navigate(App.LoginF, Helpers.Pages.SignIn, Helpers.Transitions.DrillIn, true);
+            
         }
     }
 }

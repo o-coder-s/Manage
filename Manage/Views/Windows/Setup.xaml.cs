@@ -7,15 +7,15 @@ namespace Manage.Views.Windows
     /// </summary>
     public partial class Setup : Window
     {
-        public Setup(object ExtraData = null)
+        public Setup(object ExtraData = null) : this()
         {
-            InitializeComponent();
-            App.SetupF = SetupF;
+            
         }
         public Setup()
         {
             InitializeComponent();
             App.SetupF = SetupF;
+            
         }
 
 

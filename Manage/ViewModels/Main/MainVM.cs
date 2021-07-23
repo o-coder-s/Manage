@@ -1,14 +1,12 @@
 ﻿using Manage.Base;
 using Manage.Models;
 using System;
-using System.Collections.Generic;
 using System.Windows.Threading;
 
 namespace Manage.ViewModels.Main
 {
     public class MainVM : Base.ViewModel
     {
-        public string MenuIcon { get; set; } = "MenuIcon";
 
         #region Commands;
 
@@ -37,29 +35,15 @@ namespace Manage.ViewModels.Main
         //    logout.ShowAsync();
         //}
 
-        public RelayCommand ChangeThemeCommand { set; get; }
 
-        public void ChangeTheme(object param)
-        {
-            if (ThemeImage == "Dark")
-            {
-                ThemeImage = "Light";
-                ModernWpf.ThemeManager.Current.ApplicationTheme = ModernWpf.ApplicationTheme.Dark;
-            }
-            else
-            {
-                ThemeImage = "Dark";
-                ModernWpf.ThemeManager.Current.ApplicationTheme = ModernWpf.ApplicationTheme.Light;
-            }
-        }
 
         #endregion
 
         #region Properties
+        public string MenuIcon { get; set; } = "MenuIcon";
 
         public DateTime Now { get; set; }
         public string DayOfWeek { get; set; }
-        public string ThemeImage { get; set; }
         public User CurrentUser { get; set; }
         public bool CanGoHome { get; set; }
         public Uri MainPage { get; set; }
@@ -68,7 +52,7 @@ namespace Manage.ViewModels.Main
 
         #region Private Properties
 
-        private List<string> Days { get; } = new List<string>()
+        private string[] Days { get; } =
         {
             "Dimanche",
             "Lundi",
@@ -85,13 +69,6 @@ namespace Manage.ViewModels.Main
 
         public MainVM()
         {
-            // Initializing commands
-            ChangeThemeCommand = new RelayCommand(ChangeTheme);
-            //NavigateHomeCommand = new RelayCommand(NavigateHome, CanNavigateHome);
-            //LogoutCommand = new RelayCommand(Logout, CanLogout);
-            // Theme Image
-            ThemeImage = ModernWpf.ThemeManager.Current.ApplicationTheme == ModernWpf.ApplicationTheme.Light ? "Dark" : "Light";
-
             // Main Page
 
             // MainPage = new Uri("../../Views/Pages/Main/Main.xaml", UriKind.Relative);

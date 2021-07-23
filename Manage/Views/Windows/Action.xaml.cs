@@ -7,15 +7,16 @@ namespace Manage.Views.Windows
     /// </summary>
     public partial class Action : Window
     {
-        public Action(object ExtraData = null)
+        public Action(object ExtraData = null): this ()
         {
-            InitializeComponent();
-            App.ActionF = ActionF;
+
+            
         }
         public Action()
         {
             InitializeComponent();
             App.ActionF = ActionF;
+            
         }
     }
 }

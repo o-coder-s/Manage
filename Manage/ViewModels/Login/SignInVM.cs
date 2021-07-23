@@ -32,8 +32,6 @@ namespace Manage.ViewModels.Login
             var values = param as object[];
             var index = (values[0] as ComboBox)?.SelectedIndex;
             var password = (values[1] as PasswordBox).Password;
-            MessageBox.Show(index.ToString(), "Index ");
-            MessageBox.Show(password, "Password is ");
             Helpers.WindowHelper.Show(Helpers.Windows.Main, true);
         }
 

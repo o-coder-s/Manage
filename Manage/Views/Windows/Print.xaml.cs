@@ -7,11 +7,7 @@ namespace Manage.Views.Windows
     /// </summary>
     public partial class Print : Window
     {
-        public Print(object ExtraData = null)
-        {
-            InitializeComponent();
-            App.PrintF = PrintF;
-        }
+        public Print(object ExtraData = null) : this() { }
 
         public Print()
         {

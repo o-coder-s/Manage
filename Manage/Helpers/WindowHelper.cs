@@ -23,7 +23,7 @@ namespace Manage.Helpers
 
         #region Static Methods
 
-        public static void Show(Windows window, bool CloseCurrent, object ExtraData = null)
+        public static void Show(Windows window, bool CloseCurrent = false, object ExtraData = null)
         {
             Window tmp = CurrentWindow;
             CurrentWindow = GetWindow(window, ExtraData);
@@ -31,10 +31,10 @@ namespace Manage.Helpers
             if (CloseCurrent) tmp.Close();
         }
 
-        public static void ShowDialog(Windows window)
+        public static void ShowDialog(Windows window, object ExtraData = null)
         {
 
-            Window Dialog = GetWindow(window);
+            Window Dialog = GetWindow(window, ExtraData);
             Dialog.ShowInTaskbar = false;
             Dialog.ShowDialog();
 

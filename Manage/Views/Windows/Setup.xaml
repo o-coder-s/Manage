@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Manage.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shared="clr-namespace:Manage.ViewModels.Shared"
     xmlns:ui="http://schemas.modernwpf.com/2019"
     xmlns:vm="clr-namespace:Manage.ViewModels.Setup"
     Name="Window"
@@ -81,7 +82,11 @@
                 FontSize="13"
                 Text="{Binding ElementName=Window, Path=Title}" />
 
-            <ui:TitleBarButton Grid.Column="2" Command="{Binding ChangeThemeCommand}">
+            <ui:TitleBarButton
+                Name="ThemeButton"
+                Grid.Column="2"
+                Command="{Binding ChangeThemeCommand}"
+                DataContext="{Binding Source={x:Static shared:ThemeVM.Instance}}">
                 <Image Width="24" Source="{Binding ThemeImage, Converter={StaticResource KeyToResource}}" />
             </ui:TitleBarButton>
         </Grid>

@@ -21,6 +21,7 @@ namespace Manage
         #region Static Properties
         public static string ServerIP { get; set; }
         public static string ServerPort { get; set; }
+        public static string JwtToken { get; set; }
         #endregion
 
         #region Properties

@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Manage.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shared="clr-namespace:Manage.ViewModels.Shared"
     xmlns:ui="http://schemas.modernwpf.com/2019"
     xmlns:vm="clr-namespace:Manage.ViewModels.Main"
     Name="Window"
@@ -97,10 +98,16 @@
 
 
             <ui:TitleBarButton
+                Name="ThemeButton"
                 Grid.Column="3"
                 Margin="5,0,10,0"
-                Command="{Binding ChangeThemeCommand}">
-                <Image Width="24" Source="{Binding ThemeImage, Converter={StaticResource KeyToResource}}" />
+                Command="{Binding ChangeThemeCommand}"
+                DataContext="{Binding Source={x:Static shared:ThemeVM.Instance}}">
+                <Image
+                    Name="ThemeImage"
+                    Width="24"
+                    DataContext="{Binding ElementName=ThemeButton, Path=DataContext}"
+                    Source="{Binding ThemeImage, Converter={StaticResource KeyToResource}}" />
             </ui:TitleBarButton>
 
             <ui:AppBarSeparator Grid.Column="4" />
