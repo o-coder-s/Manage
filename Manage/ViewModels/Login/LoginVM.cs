@@ -1,26 +1,24 @@
-﻿using Manage.Base;
-
-namespace Manage.ViewModels.Login
+﻿namespace Manage.ViewModels.Login
 {
     public class LoginVM : Base.ViewModel
     {
         #region Properties
 
-        
+
 
         #endregion
 
         #region Commands
 
 
-        
+
         #endregion
 
         #region Constructors
 
         public LoginVM()
         {
-            
+
         }
 
         #endregion

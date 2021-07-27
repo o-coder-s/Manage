@@ -11,10 +11,22 @@ namespace Manage.ViewModels.Main
         #region Commands;
 
         public RelayCommand NavigateHomeCommand { get; set; }
+        public bool MenuIconVisible { get; set; }
         // Can Navigate Home
         public bool CanNavigateHome(object param)
         {
+            if (App.CurrentPage == Helpers.Pages.Menu)
+            {
+                MenuIconVisible = false;
+                return false;
+            }
+            MenuIconVisible = true;
             return true;
+        }
+
+        public void NavigateHome(object param)
+        {
+            Helpers.NavigationHelper.Navigate(App.MainF, Helpers.Pages.Menu, Helpers.Transitions.DrillIn, true);
         }
 
 
@@ -70,6 +82,9 @@ namespace Manage.ViewModels.Main
         public MainVM()
         {
             // Main Page
+
+            // Initialize commands
+            NavigateHomeCommand = new RelayCommand(NavigateHome, CanNavigateHome);
 
             // MainPage = new Uri("../../Views/Pages/Main/Main.xaml", UriKind.Relative);
 

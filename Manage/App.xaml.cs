@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Manage.Helpers;
+using System.Diagnostics;
 using System.Windows;
 
 namespace Manage
@@ -22,6 +23,8 @@ namespace Manage
         public static string ServerIP { get; set; }
         public static string ServerPort { get; set; }
         public static string JwtToken { get; set; }
+
+        public static Pages CurrentPage{ get; set; }
         #endregion
 
         #region Properties

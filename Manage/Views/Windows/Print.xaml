@@ -39,6 +39,12 @@
     <Window.DataContext>
         <vm:PrintVM />
     </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding
+            Key="T"
+            Command="{Binding Source={x:Static shared:ThemeVM.ChangeThemeCommand}}"
+            Modifiers="Ctrl" />
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -85,14 +91,17 @@
                 Text="{Binding ElementName=Window, Path=Title}" />
 
             <ui:TitleBarButton
-                Name="ThemeButton"
-                Grid.Column="2"
-                Command="{Binding ChangeThemeCommand}"
+                Grid.Column="3"
+                Margin="5,0,10,0"
+                Command="{Binding Source={x:Static shared:ThemeVM.ChangeThemeCommand}}"
                 DataContext="{Binding Source={x:Static shared:ThemeVM.Instance}}">
-                <Image
-                    Width="24"
-                    DataContext="{Binding ElementName=ThemeButton, Path=DataContext}"
-                    Source="{Binding ThemeImage, Converter={StaticResource KeyToResource}}" />
+                <ui:TitleBarButton.ToolTip>
+                    <ui:SimpleStackPanel>
+                        <TextBlock Text="Switch Theme" />
+                        <TextBlock HorizontalAlignment="Center" Text="Ctrl + T" />
+                    </ui:SimpleStackPanel>
+                </ui:TitleBarButton.ToolTip>
+                <Image Width="24" Source="{Binding ThemeImage, Converter={StaticResource KeyToResource}}" />
             </ui:TitleBarButton>
         </Grid>
 

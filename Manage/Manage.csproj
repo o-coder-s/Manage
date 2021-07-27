@@ -56,8 +56,14 @@
     <ApplicationIcon>icons8_linux_server.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CalcBinding, Version=2.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CalcBinding.2.5.2\lib\net45\CalcBinding.dll</HintPath>
+    </Reference>
     <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.4.4.0\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicExpresso.Core, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicExpresso.Core.2.3.1\lib\net461\DynamicExpresso.Core.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.2.4.3\lib\net46\MahApps.Metro.dll</HintPath>
@@ -120,7 +126,7 @@
     <Compile Include="Converters\PixelToGridLengthConverter.cs" />
     <Compile Include="Helpers\NavigationHelper.cs" />
     <Compile Include="Helpers\WindowHelper.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Models.cs" />
     <Compile Include="Repository\Request.cs" />
     <Compile Include="ViewModels\Action\ActionVM.cs" />
     <Compile Include="ViewModels\Login\LoginVM.cs" />
@@ -130,6 +136,9 @@
     <Compile Include="ViewModels\Print\PrintVM.cs" />
     <Compile Include="ViewModels\Setup\SetupVM.cs" />
     <Compile Include="ViewModels\Shared\ThemeVM.cs" />
+    <Compile Include="Views\Pages\Error\Error.xaml.cs">
+      <DependentUpon>Error.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\Login\NewPassword.xaml.cs">
       <DependentUpon>NewPassword.xaml</DependentUpon>
     </Compile>
@@ -147,6 +156,9 @@
     </Compile>
     <Compile Include="Views\Pages\Main\Clinets.xaml.cs">
       <DependentUpon>Clinets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Main\Dashboard.xaml.cs">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\Main\Expenses.xaml.cs">
       <DependentUpon>Expenses.xaml</DependentUpon>
@@ -246,6 +258,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pages\Error\Error.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\Login\NewPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -267,6 +283,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\Main\Clinets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Main\Dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

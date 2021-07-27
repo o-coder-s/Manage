@@ -6,8 +6,29 @@ namespace Manage.ViewModels.Main
 {
     public class MenuVM : Base.ViewModel
     {
+
         #region Properties
         public ObservableCollection<MenuItem> MenuItems { get; set; }
+
+        #endregion
+
+        #region Private Properties
+
+        private Helpers.Pages[] pages =
+        {
+            Helpers.Pages.Clients,
+            Helpers.Pages.Suppliers,
+            Helpers.Pages.Stock,
+            Helpers.Pages.Purchases,
+            Helpers.Pages.Sales,
+            Helpers.Pages.ReturnPurchases,
+            Helpers.Pages.ReturnSales,
+            Helpers.Pages.SellOnDesk,
+            Helpers.Pages.CashRegister,
+            Helpers.Pages.Expenses,
+            Helpers.Pages.Articles,
+            Helpers.Pages.Settings,
+        };
 
         #endregion
 
@@ -17,7 +38,9 @@ namespace Manage.ViewModels.Main
 
         public void Choose(object param)
         {
-            Helpers.WindowHelper.ShowDialog(Helpers.Windows.Action);
+            int selectedIndex = int.Parse(param.ToString());
+
+            Helpers.NavigationHelper.Navigate(App.MainF, pages[selectedIndex], Helpers.Transitions.DrillIn, true);
         }
 
         #endregion

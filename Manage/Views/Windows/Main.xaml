@@ -2,6 +2,7 @@
     x:Class="Manage.Views.Windows.Main"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
     xmlns:cvs="clr-namespace:Manage.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Manage.Views.Windows"
@@ -37,6 +38,16 @@
             <Setter Property="IsActive" Value="{Binding IsActive, ElementName=Window}" />
         </Style>
     </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding
+            Key="T"
+            Command="{Binding Source={x:Static shared:ThemeVM.ChangeThemeCommand}}"
+            Modifiers="Ctrl" />
+        <KeyBinding
+            Key="M"
+            Command="{Binding NavigateHomeCommand}"
+            Modifiers="Ctrl" />
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -50,7 +61,7 @@
             Grid.Row="0"
             Height="{Binding ElementName=Window, Path=(ui:TitleBar.Height)}"
             ui:ThemeManager.RequestedTheme="Dark"
-            Background="{DynamicResource SystemControlBackgroundAccentBrush}">
+            Background="#28587B">
 
             <Grid.Style>
                 <Style TargetType="Grid">
@@ -76,11 +87,12 @@
 
             <ui:TitleBarButton
                 Grid.Column="1"
-                Command="{Binding NavigateHome}"
+                Command="{Binding NavigateHomeCommand}"
                 Cursor="Hand"
                 FontSize="22"
                 IsEnabled="True"
-                ToolTip="Menu">
+                ToolTip="Menu"
+                Visibility="{c:Binding MenuIconVisible}">
                 <Image Height="22" Source="{Binding MenuIcon, Converter={StaticResource KeyToResource}}" />
             </ui:TitleBarButton>
 
@@ -95,19 +107,18 @@
                 Text="{Binding ElementName=Window, Path=Title}" />
 
             <!--  Theme Switch  -->
-
-
             <ui:TitleBarButton
-                Name="ThemeButton"
                 Grid.Column="3"
                 Margin="5,0,10,0"
-                Command="{Binding ChangeThemeCommand}"
+                Command="{Binding Source={x:Static shared:ThemeVM.ChangeThemeCommand}}"
                 DataContext="{Binding Source={x:Static shared:ThemeVM.Instance}}">
-                <Image
-                    Name="ThemeImage"
-                    Width="24"
-                    DataContext="{Binding ElementName=ThemeButton, Path=DataContext}"
-                    Source="{Binding ThemeImage, Converter={StaticResource KeyToResource}}" />
+                <ui:TitleBarButton.ToolTip>
+                    <ui:SimpleStackPanel>
+                        <TextBlock Text="Switch Theme" />
+                        <TextBlock HorizontalAlignment="Center" Text="Ctrl + T" />
+                    </ui:SimpleStackPanel>
+                </ui:TitleBarButton.ToolTip>
+                <Image Width="24" Source="{Binding ThemeImage, Converter={StaticResource KeyToResource}}" />
             </ui:TitleBarButton>
 
             <ui:AppBarSeparator Grid.Column="4" />
@@ -148,7 +159,7 @@
                 Grid.Row="2"
                 Height="22"
                 ui:ThemeManager.RequestedTheme="Dark"
-                Background="{StaticResource SystemAccentColorDark1Brush}">
+                Background="#28587B">
                 <ui:SimpleStackPanel
                     Margin="10,0,0,0"
                     VerticalAlignment="Center"

@@ -1,4 +1,5 @@
-﻿using Manage.Views.Pages.Login;
+﻿using Manage.Views.Pages.Error;
+using Manage.Views.Pages.Login;
 using Manage.Views.Pages.Main;
 using ModernWpf.Media.Animation;
 using System;
@@ -59,6 +60,7 @@ namespace Manage.Helpers
 
         public static void Navigate(ModernWpf.Controls.Frame frame, Pages page, Transitions transitions, bool clearHistory = true)
         {
+            App.CurrentPage = page;
             frame.Navigate(GetPageType(page), null, GetTransition(transitions));
             if (clearHistory)
             {
@@ -69,20 +71,60 @@ namespace Manage.Helpers
 
         private static Type GetPageType(Pages page)
         {
+
             switch (page)
             {
                 case Pages.Menu:
                     return typeof(Menu);
+
+                case Pages.Clients:
+                    return typeof(Clinets);
+
+                case Pages.Suppliers:
+                    return typeof(Suppliers);
+
+                case Pages.Stock:
+                    return typeof(Stock);
+
+                case Pages.Purchases:
+                    return typeof(Purchases);
+
+                case Pages.Sales:
+                    return typeof(Sales);
+
+                case Pages.ReturnPurchases:
+                    return typeof(ReturnPurchases);
+
+                case Pages.ReturnSales:
+                    return typeof(ReturnSales);
+
+                case Pages.SellOnDesk:
+                    return typeof(SellOnDesk);
+
+                case Pages.CashRegister:
+                    return typeof(CashRegister);
+
+                case Pages.Expenses:
+                    return typeof(Expenses);
+
+                case Pages.Articles:
+                    return typeof(Articles);
+
+                case Pages.Settings:
+                    return typeof(Settings);
+
                 case Pages.SignIn:
                     return typeof(SignIn);
+
                 case Pages.NewPassword:
                     return typeof(NewPassword);
+
                 case Pages.Questions:
                     return typeof(Questions);
 
                 default:
-                    // Default no data or Error 404
-                    return typeof(Menu);
+                    return typeof(Error);
+
             }
         }
 

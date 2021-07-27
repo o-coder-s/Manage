@@ -10,6 +10,9 @@ namespace Manage.Base
 
         #region Properties
 
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+
         #endregion
     }
 }

@@ -7,10 +7,10 @@
     xmlns:local="clr-namespace:Manage.Views.Pages.Login"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.modernwpf.com/2019"
-    Title="SignIn"
     xmlns:vm="clr-namespace:Manage.ViewModels.Login"
-    d:DesignHeight="400"
-    d:DesignWidth="400"
+    Title="SignIn"
+    d:DesignHeight="550"
+    d:DesignWidth="500"
     mc:Ignorable="d">
     <ui:Page.Resources>
         <cvs:EntriersToLogin x:Key="EntriesToLogin" />
@@ -18,27 +18,49 @@
     <ui:Page.DataContext>
         <vm:SignInVM />
     </ui:Page.DataContext>
+    <ui:Page.InputBindings>
+        <KeyBinding Key="Return" Command="{Binding LoginCommand}">
+            <KeyBinding.CommandParameter>
+                <MultiBinding Converter="{StaticResource EntriesToLogin}">
+                    <Binding ElementName="UIUsername" />
+                    <Binding ElementName="UIPassword" />
+                </MultiBinding>
+            </KeyBinding.CommandParameter>
+        </KeyBinding>
+    </ui:Page.InputBindings>
 
     <Grid>
         <ui:SimpleStackPanel
             Width="300"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Spacing="12">
-            <ui:PersonPicture />
-            <TextBlock
-                HorizontalAlignment="Center"
-                FontSize="14"
-                Text="Administrateur" />
-            <ComboBox
-                Name="UIUsername"
-                Width="300"
-                ui:ControlHelper.Header="Username" />
-            <PasswordBox Name="UIPassword" ui:ControlHelper.Header="Password" />
-
+            Spacing="18">
+            <ui:SimpleStackPanel Orientation="Vertical" Spacing="10">
+                <ui:PersonPicture Width="201" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    Text="{Binding ElementName=UIUsername, Path=SelectedItem.Role}" />
+            </ui:SimpleStackPanel>
+            <ui:SimpleStackPanel Orientation="Vertical" Spacing="10">
+                <ComboBox
+                    Name="UIUsername"
+                    Width="300"
+                    ui:ControlHelper.Header="Username"
+                    ItemsSource="{Binding Users}"
+                    SelectedIndex="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Username}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <PasswordBox Name="UIPassword" ui:ControlHelper.Header="Password" />
+                <ui:HyperlinkButton Content="Forgot Password" />
+            </ui:SimpleStackPanel>
             <Button
                 Width="300"
-                Margin="0,20,0,0"
                 Command="{Binding LoginCommand}"
                 Content="Login"
                 Style="{StaticResource AccentButtonStyle}">

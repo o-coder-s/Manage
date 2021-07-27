@@ -1,6 +1,6 @@
 ﻿using Manage.Base;
 using Manage.Models;
-using System.Windows;
+using System.Collections.Generic;
 using System.Windows.Controls;
 
 namespace Manage.ViewModels.Login
@@ -10,6 +10,7 @@ namespace Manage.ViewModels.Login
 
         #region Properties
         public User User { get; set; }
+        public List<User> Users { get; set; }
         #endregion
 
         #region Commands
@@ -23,7 +24,7 @@ namespace Manage.ViewModels.Login
             var index = (values[0] as ComboBox)?.SelectedIndex == null ? -1 : (values[0] as ComboBox)?.SelectedIndex;
             var password = (values[1] as PasswordBox).Password;
 
-            if (password == "1234") return true;
+            if (password == Users[(int)index].Password) return true;
             return false;
         }
 
@@ -40,6 +41,11 @@ namespace Manage.ViewModels.Login
         public SignInVM()
         {
             LoginCommand = new RelayCommand(Login, CanLogin);
+
+            // initializing users
+            Users = new List<User>();
+            Users.Add(new User() { Username = "oSethoum", Password = "1234", Role = "Administrator" });
+            Users.Add(new User() { Username = "bYasser", Password = "4321", Role = "Employee" });
         }
     }
 }

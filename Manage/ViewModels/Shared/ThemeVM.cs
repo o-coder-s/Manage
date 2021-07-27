@@ -2,14 +2,15 @@
 
 namespace Manage.ViewModels.Shared
 {
-    public class ThemeVM: Base.ViewModel
+    public class ThemeVM : Base.ViewModel
     {
-       
+
         public string ThemeImage { get; set; }
+        
 
-        public RelayCommand ChangeThemeCommand{ get; set; }
+        public static RelayCommand ChangeThemeCommand { get; set; }
 
-        public void ChangeTheme (object param)
+        public void ChangeTheme(object param)
         {
             if (ThemeImage == "Light")
             {

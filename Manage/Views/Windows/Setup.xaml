@@ -10,7 +10,7 @@
     xmlns:ui="http://schemas.modernwpf.com/2019"
     xmlns:vm="clr-namespace:Manage.ViewModels.Setup"
     Name="Window"
-    Title="Login"
+    Title="Setup"
     ui:TitleBar.ButtonStyle="{DynamicResource AppTitleBarButtonStyle}"
     ui:TitleBar.ExtendViewIntoTitleBar="True"
     ui:TitleBar.Style="{DynamicResource AppTitleBarStyle}"
@@ -37,6 +37,12 @@
     <Window.DataContext>
         <vm:SetupVM />
     </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding
+            Key="T"
+            Command="{Binding Source={x:Static shared:ThemeVM.ChangeThemeCommand}}"
+            Modifiers="Ctrl" />
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -82,11 +88,18 @@
                 FontSize="13"
                 Text="{Binding ElementName=Window, Path=Title}" />
 
+            <!--  Theme Switch  -->
             <ui:TitleBarButton
-                Name="ThemeButton"
-                Grid.Column="2"
-                Command="{Binding ChangeThemeCommand}"
+                Grid.Column="3"
+                Margin="5,0,10,0"
+                Command="{Binding Source={x:Static shared:ThemeVM.ChangeThemeCommand}}"
                 DataContext="{Binding Source={x:Static shared:ThemeVM.Instance}}">
+                <ui:TitleBarButton.ToolTip>
+                    <ui:SimpleStackPanel>
+                        <TextBlock Text="Switch Theme" />
+                        <TextBlock HorizontalAlignment="Center" Text="Ctrl + T" />
+                    </ui:SimpleStackPanel>
+                </ui:TitleBarButton.ToolTip>
                 <Image Width="24" Source="{Binding ThemeImage, Converter={StaticResource KeyToResource}}" />
             </ui:TitleBarButton>
         </Grid>

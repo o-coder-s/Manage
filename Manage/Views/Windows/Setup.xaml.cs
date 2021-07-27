@@ -9,13 +9,13 @@ namespace Manage.Views.Windows
     {
         public Setup(object ExtraData = null) : this()
         {
-            
+
         }
         public Setup()
         {
             InitializeComponent();
             App.SetupF = SetupF;
-            
+
         }
 
 
