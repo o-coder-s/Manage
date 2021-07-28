@@ -1,5 +1,9 @@
 ﻿using Manage.Helpers;
+using Manage.Models;
+using SQLite;
+using System;
 using System.Diagnostics;
+using System.IO;
 using System.Windows;
 
 namespace Manage
@@ -24,7 +28,16 @@ namespace Manage
         public static string ServerPort { get; set; }
         public static string JwtToken { get; set; }
 
-        public static Pages CurrentPage{ get; set; }
+        // Database
+        public static string AppDataFolder { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Manage");
+        public static string ImagesFolder { get; } = Path.Combine(AppDataFolder, "Images");
+        public static string DatabasePath { get; } = Path.Combine(AppDataFolder, "Manage.db");
+
+        public static SQLiteConnection DBConn { get; set; }
+        //public static 
+
+
+        public static Pages CurrentPage { get; set; }
         #endregion
 
         #region Properties
@@ -47,7 +60,49 @@ namespace Manage
             //{
             //    MessageBox.Show("Server is not running \n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             //}
+
+            try
+            {
+                // Created the folder
+                Directory.CreateDirectory(AppDataFolder);
+                Directory.CreateDirectory(ImagesFolder);
+
+                // Create database
+                DBConn = new SQLiteConnection(DatabasePath);
+
+                // Migration Database
+
+                DBConn.CreateTable<BillIn>();
+                DBConn.CreateTable<BillInProduct>();
+                DBConn.CreateTable<BillOut>();
+                DBConn.CreateTable<BillOutProduct>();
+                DBConn.CreateTable<Brand>();
+                DBConn.CreateTable<Category>();
+                DBConn.CreateTable<Client>();
+                DBConn.CreateTable<ClientPayment>();
+                DBConn.CreateTable<Company>();
+                DBConn.CreateTable<Depot>();
+                DBConn.CreateTable<Employee>();
+                DBConn.CreateTable<Expense>();
+                DBConn.CreateTable<Favourite>();
+                DBConn.CreateTable<Order>();
+                DBConn.CreateTable<OrderProduct>();
+                DBConn.CreateTable<Person>();
+                DBConn.CreateTable<Role>();
+                DBConn.CreateTable<Stock>();
+                DBConn.CreateTable<Supplier>();
+                DBConn.CreateTable<Tax>();
+                DBConn.CreateTable<User>();
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message, "Error");
+                throw;
+            }
         }
+
+        
 
         protected override void OnExit(ExitEventArgs e)
         {

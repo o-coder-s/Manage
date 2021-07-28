@@ -1,6 +1,7 @@
 ﻿using Manage.Views.Pages.Error;
 using Manage.Views.Pages.Login;
 using Manage.Views.Pages.Main;
+using Manage.Views.Pages.Setup;
 using ModernWpf.Media.Animation;
 using System;
 
@@ -40,11 +41,17 @@ namespace Manage.Helpers
         Questions,
 
         // Action Pages
-
+        Welcome,
+        Agreement,
+        Information,
+        Account,
+        Finish,
         // Print Pages
 
         // Setup Pages
 
+        // Error Pages
+        Empty
     }
 
 
@@ -121,6 +128,25 @@ namespace Manage.Helpers
 
                 case Pages.Questions:
                     return typeof(Questions);
+
+                case Pages.Welcome:
+                    return typeof(Welcome);
+                
+                case Pages.Agreement:
+                    return typeof(Agreement);
+
+                case Pages.Information:
+                    return typeof(Information);
+
+                case Pages.Account:
+                    return typeof(Account);
+
+                case Pages.Finish:
+                    return typeof(Finish);
+
+
+                case Pages.Empty:
+                    return typeof(Empty);
 
                 default:
                     return typeof(Error);

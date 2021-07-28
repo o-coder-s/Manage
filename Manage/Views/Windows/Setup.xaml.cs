@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Manage.Helpers;
+using System.Windows;
 
 namespace Manage.Views.Windows
 {
@@ -15,7 +16,7 @@ namespace Manage.Views.Windows
         {
             InitializeComponent();
             App.SetupF = SetupF;
-
+            NavigationHelper.Navigate(App.SetupF, Helpers.Pages.Welcome, Transitions.DrillIn);
         }
 
 
