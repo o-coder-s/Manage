@@ -158,7 +158,6 @@
     <Compile Include="Repository\Request.cs" />
     <Compile Include="ViewModels\Action\ActionVM.cs" />
     <Compile Include="ViewModels\Login\LoginVM.cs" />
-    <Compile Include="ViewModels\Login\SignInVM.cs" />
     <Compile Include="ViewModels\Main\MainVM.cs" />
     <Compile Include="ViewModels\Main\MenuVM.cs" />
     <Compile Include="ViewModels\Print\PrintVM.cs" />

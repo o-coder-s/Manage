@@ -7,7 +7,6 @@ namespace Manage.Views.Windows
     /// </summary>
     public partial class Main : System.Windows.Window
     {
-
         public Main(object ExtraData = null) : this()
         {
 
@@ -17,7 +16,9 @@ namespace Manage.Views.Windows
         {
             InitializeComponent();
             App.MainF = MainF;
-            NavigationHelper.Navigate(App.MainF, Helpers.Pages.Menu, Transitions.Entrance);
+            NavigationHelper.Navigate(App.MainF, Helpers.Pages.Menu, Transitions.Suppress);
         }
+
+        
     }
 }

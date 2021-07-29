@@ -6,9 +6,11 @@
     xmlns:local="clr-namespace:Manage.Views.Pages.Setup"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:vm="clr-namespace:Manage.ViewModels.Setup"
     Title="Welcome"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    DataContext="{Binding Source={x:Static vm:SetupVM.Instance}}"
     mc:Ignorable="d">
 
     <Grid>
@@ -28,6 +30,8 @@
             Grid.Row="1"
             Margin="10"
             HorizontalAlignment="Right"
+            Command="{Binding NextCommand}"
+            CommandParameter="1"
             Content="Next"
             Style="{StaticResource AccentButtonStyle}" />
     </Grid>

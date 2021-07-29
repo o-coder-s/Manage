@@ -5,7 +5,7 @@ namespace Manage.Models
 
     public class BillIn : Model
     {
-        [Indexed]
+        [PrimaryKey,AutoIncrement]
         public int BillInID { get; set; }
         [Indexed]
         public int UserID { get; set; }
@@ -229,5 +229,9 @@ namespace Manage.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
+        public string SecondQuestion { get; set; }
+        public string FirstQuestion { get; set; }
+        public string SecondAnswer { get; set; }
+        public string FirstAnswer { get; set; }
     }
 }

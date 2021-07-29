@@ -1,14 +1,70 @@
-﻿<Page x:Class="Manage.Views.Pages.Login.Questions"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Manage.Views.Pages.Login"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Questions">
-
+﻿<ui:Page
+    x:Class="Manage.Views.Pages.Login.Questions"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+    xmlns:cvs="clr-namespace:Manage.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Manage.Views.Pages.Login"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:vm="clr-namespace:Manage.ViewModels.Login"
+    Title="Questions"
+    d:DesignHeight="550"
+    d:DesignWidth="500"
+    DataContext="{Binding Source={x:Static vm:LoginVM.Instance}}"
+    mc:Ignorable="d">
+    <ui:Page.Resources>
+        <cvs:EntriersToLogin x:Key="EntriersToLogin" />
+    </ui:Page.Resources>
     <Grid>
-        
+        <ui:SimpleStackPanel VerticalAlignment="Center" Spacing="30">
+            <TextBlock
+                Width="300"
+                FontSize="28"
+                Text="Security Questions" />
+            <ui:SimpleStackPanel
+                Width="300"
+                HorizontalAlignment="Center"
+                Spacing="20">
+                <TextBox
+                    Focusable="False"
+                    IsReadOnly="True"
+                    Text="{Binding SelectedUser.FirstQuestion}" />
+                <TextBox Name="FirstAnswer" ui:ControlHelper.PlaceholderText="Answer" />
+            </ui:SimpleStackPanel>
+
+            <ui:SimpleStackPanel
+                Width="300"
+                HorizontalAlignment="Center"
+                Spacing="20">
+                <TextBox
+                    Focusable="False"
+                    IsReadOnly="True"
+                    Text="{Binding SelectedUser.SecondQuestion}" />
+                <TextBox Name="SecondAnswer" ui:ControlHelper.PlaceholderText="Answer" />
+            </ui:SimpleStackPanel>
+            <ui:SimpleStackPanel
+                HorizontalAlignment="Center"
+                Orientation="Horizontal"
+                Spacing="20">
+                <Button
+                    Width="100"
+                    Command="{Binding BackCommand}"
+                    Content="Back" />
+                <Button
+                    Width="180"
+                    Command="{Binding NextCommand}"
+                    Content="Next"
+                    Style="{StaticResource AccentButtonStyle}">
+                    <Button.CommandParameter>
+                        <MultiBinding Converter="{StaticResource EntriersToLogin}">
+                            <Binding ElementName="FirstAnswer" Path="Text" />
+                            <Binding ElementName="SecondAnswer" Path="Text" />
+                        </MultiBinding>
+                    </Button.CommandParameter>
+                </Button>
+            </ui:SimpleStackPanel>
+        </ui:SimpleStackPanel>
     </Grid>
-</Page>
+</ui:Page>

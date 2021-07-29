@@ -19,6 +19,8 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="ToolWindow"
     mc:Ignorable="d">
+    <Window.Triggers />
+
     <Window.Resources>
         <!--  Converters  -->
         <cvs:PixelsToGridLengthConverter x:Key="PixelsToGridLengthConverter" />
@@ -90,7 +92,7 @@
 
             <!--  Theme Switch  -->
             <ui:TitleBarButton
-                Grid.Column="3"
+                Grid.Column="2"
                 Margin="5,0,10,0"
                 Command="{Binding Source={x:Static shared:ThemeVM.ChangeThemeCommand}}"
                 DataContext="{Binding Source={x:Static shared:ThemeVM.Instance}}">

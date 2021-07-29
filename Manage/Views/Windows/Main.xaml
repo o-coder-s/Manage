@@ -27,6 +27,19 @@
     <Window.DataContext>
         <vm:MainVM />
     </Window.DataContext>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation
+                        Storyboard.TargetProperty="Opacity"
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.5" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Window.Resources>
         <cvs:KeyToResource x:Key="KeyToResource" />
         <cvs:PixelsToGridLengthConverter x:Key="PixelsToGridLengthConverter" />

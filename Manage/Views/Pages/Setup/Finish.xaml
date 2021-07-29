@@ -6,10 +6,44 @@
     xmlns:local="clr-namespace:Manage.Views.Pages.Setup"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:vm="clr-namespace:Manage.ViewModels.Setup"
     Title="Finish"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    DataContext="{Binding Source={x:Static vm:SetupVM.Instance}}"
     mc:Ignorable="d">
 
-    <Grid />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+
+        </Grid.RowDefinitions>
+
+
+        <ui:SimpleStackPanel
+            Grid.Row="0"
+            Margin="40"
+            Spacing="20">
+            <TextBlock FontSize="36" Text="Finish" />
+            <TextBlock FontSize="16" Text="Ready To Go." />
+        </ui:SimpleStackPanel>
+
+        <ui:SimpleStackPanel
+            Grid.Row="2"
+            Margin="10"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal"
+            Spacing="10">
+            <Button
+                Command="{Binding PreviousCommand}"
+                CommandParameter="3"
+                Content="Previous" />
+            <Button
+                Command="{Binding FinishCommand}"
+                Content="Finish"
+                Style="{StaticResource AccentButtonStyle}" />
+        </ui:SimpleStackPanel>
+    </Grid>
 </ui:Page>

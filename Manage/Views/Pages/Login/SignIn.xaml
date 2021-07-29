@@ -11,13 +11,11 @@
     Title="SignIn"
     d:DesignHeight="550"
     d:DesignWidth="500"
+    DataContext="{Binding Source={x:Static vm:LoginVM.Instance}}"
     mc:Ignorable="d">
     <ui:Page.Resources>
         <cvs:EntriersToLogin x:Key="EntriesToLogin" />
     </ui:Page.Resources>
-    <ui:Page.DataContext>
-        <vm:SignInVM />
-    </ui:Page.DataContext>
     <ui:Page.InputBindings>
         <KeyBinding Key="Return" Command="{Binding LoginCommand}">
             <KeyBinding.CommandParameter>
@@ -36,11 +34,10 @@
             VerticalAlignment="Center"
             Spacing="18">
             <ui:SimpleStackPanel Orientation="Vertical" Spacing="10">
-                <ui:PersonPicture Width="201" />
+                <ui:PersonPicture Width="200" />
                 <TextBlock
                     HorizontalAlignment="Center"
                     FontSize="16"
-                    FontWeight="Bold"
                     Text="{Binding ElementName=UIUsername, Path=SelectedItem.Role}" />
             </ui:SimpleStackPanel>
             <ui:SimpleStackPanel Orientation="Vertical" Spacing="10">
@@ -49,7 +46,7 @@
                     Width="300"
                     ui:ControlHelper.Header="Username"
                     ItemsSource="{Binding Users}"
-                    SelectedIndex="0">
+                    SelectedIndex="{Binding SelectedIndex}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=Username}" />
@@ -57,7 +54,7 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
                 <PasswordBox Name="UIPassword" ui:ControlHelper.Header="Password" />
-                <ui:HyperlinkButton Content="Forgot Password" />
+                <ui:HyperlinkButton Command="{Binding ResetPasswordCommand}" Content="Forgot Password" />
             </ui:SimpleStackPanel>
             <Button
                 Width="300"
